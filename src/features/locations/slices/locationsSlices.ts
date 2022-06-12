@@ -2,6 +2,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../../store/store";
 import RickAndMortyService from "../../../services/RickAndMorty.service";
 import { ILocation, LocationResults } from "../types";
+import { useAppCtx } from "../../../context/AppContext/hooks";
+import { ActionTypes } from "../../../context/AppContext/types";
 
 export interface LocationState {
   value?: Array<LocationResults>;
@@ -17,8 +19,12 @@ const initialState: LocationState = {
 export const fetchLocations = createAsyncThunk(
   "locations/fetchLocations",
   async (paginatioNum: number) => {
-    const data = await RickAndMortyService.getLocations(paginatioNum);
-    return data;
+    try {
+      const data = await RickAndMortyService.getLocations(paginatioNum);
+      return data;
+    } catch (error) {
+      alert("Fetch locations error: " + error);
+    }
   }
 );
 
@@ -26,8 +32,12 @@ export const fetchLocations = createAsyncThunk(
 export const fetchLocationsCount = createAsyncThunk(
   "locations/fetchLocationsCount",
   async () => {
-    const {info}= await RickAndMortyService.getLocationsInfo()
-    return info.count
+    try {
+      const { info } = await RickAndMortyService.getLocationsInfo();
+      return info.count;
+    } catch (error) {
+      alert("Fetch locations count error: " + error);
+    }
   }
 );
 
@@ -51,6 +61,5 @@ export const locationsSlice = createSlice({
 });
 
 export const selectCount = (state: RootState) => state.location.value;
-
 
 export default locationsSlice.reducer;

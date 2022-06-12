@@ -32,16 +32,16 @@ type residentsPage = {
 export const fetchResidents = createAsyncThunk(
   "locations/fetchResidents",
   async (locationState:residentsPage) => {
-    const {pagination,locationId}=locationState
+    try{
+      const {pagination,locationId}=locationState
+      const {residents}=await RickAndMortyService.getLocationById(locationId);
+      const chunkedResidentsUrls=generateChunkedArr(residents,4,String(pagination));
+      const data = await RickAndMortyService.getResidents(chunkedResidentsUrls);
 
-    const {residents}=await RickAndMortyService.getLocationById(locationId);
-    const chunkedResidentsUrls=generateChunkedArr(residents,4,String(pagination));
-
-    console.log("urls ",chunkedResidentsUrls)
-
-    const data = await RickAndMortyService.getResidents(chunkedResidentsUrls);
-
-    return data;
+      return data;
+    } catch(error){
+      alert("Fetch residents error: " + error);
+    }
   }
 );
 

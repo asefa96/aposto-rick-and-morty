@@ -5,6 +5,7 @@ import { fetchLocationsCount } from "../features/locations/slices/locationsSlice
 import Home from "../pages/Home";
 import Resident from "../pages/Resident";
 import Location  from "../pages/Location";
+import NotFound from "../pages/404"
 
 export default () => {
   const [pages, setPages] = useState<any>(0);
@@ -23,6 +24,8 @@ export default () => {
         <Route path={"/"} element={<Home />} />
         <Route path={"/locations/:id"} element={<Location pages={pages} />} />
         <Route path={"/locations/:id/residents"} element={<Resident pages={pages} />} />
+        <Route path={"*"} element={<NotFound />} />
+
       </Routes>
     </>
   );

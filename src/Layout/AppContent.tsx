@@ -1,9 +1,3 @@
-import Locations from "../features/locations/components/Locations";
-import { useEffect,useState } from "react";
-import RickAndMortyService from "../services/RickAndMorty.service";
-import { Typography } from "@mui/material";
-import {Route } from "react-router-dom";
-import Residents from "../features/residents/components/Residents";
 import { styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import { useAppCtx } from "../context/AppContext/hooks";
