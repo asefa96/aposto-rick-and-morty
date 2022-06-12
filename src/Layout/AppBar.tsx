@@ -7,8 +7,6 @@ import { Paper, Typography } from "@mui/material";
 
 const appBarImg = require("../assets/images/rickmorty.png");
 
-
-
 export default function Bar() {
   React.useState<null | HTMLElement>(null);
   return (

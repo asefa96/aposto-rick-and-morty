@@ -23,12 +23,16 @@ export const useLocations = () => {
 
   const onPagination = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
+    //update url each pagination
     navigate(`/locations/${value}`);
   };
 
   useEffect(() => {
+     // set pagination num if the user come with url link
     setPage(Number(id));
+    // fetch location via page num
     appDispatch(fetchLocations(Number(id)));
+    //set grid page header
     dispatch({
       type: ActionTypes.SetHeader,
       payload: {

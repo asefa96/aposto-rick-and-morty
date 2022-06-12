@@ -1,4 +1,5 @@
 import './App.css';
+import './assets/styles/mui.css'
 import Layout from './Layout';
 
 function App() {

@@ -1,0 +1,11 @@
+.MuiPagination-ul {
+  justify-content: center;
+}
+
+.MuiPaginationItem-root {
+  color: white !important;
+  font-size: 1.2rem !important;
+}
+.Mui-selected {
+  background-color: rgb(60, 62, 68) !important;
+}

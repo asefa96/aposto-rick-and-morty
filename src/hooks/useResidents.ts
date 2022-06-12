@@ -17,6 +17,7 @@ export const useResidents = () => {
   };
 
   useEffect(() => {
+    //fetch residents via location id and pagination
     dispatch(
       fetchResidents({
         locationId: Number(id),

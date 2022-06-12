@@ -10,7 +10,7 @@ interface Props {
 export const INITIAL_STATE: IAppContext = {
     gridHeader: <></>
 }
-
+//use this dynamic header according to location
 const AppContextProvider: FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, INITIAL_STATE)
 

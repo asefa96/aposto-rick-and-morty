@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../../store/hooks";
-import { fetchLocations } from "../slices/locationsSlices";
 import LocationCard from "../../../components/Cards/LocationCard/LocationCard";
 import {
   Box,
@@ -12,10 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import CardSkelton from "../../../components/Skelton/CardSkelton";
-import { useAppCtx } from "../../../context/AppContext/hooks";
-import { ActionTypes } from "../../../context/AppContext/types";
 import EmptyGridCard from "../../../components/Cards/EmptyGridCard";
-import { useNavigate, useParams } from "react-router-dom";
 import {useLocations} from "../../../hooks/useLocations";
 
 interface LocationsProp {
